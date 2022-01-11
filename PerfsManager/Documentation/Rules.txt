@@ -1,0 +1,74 @@
+-----Timing Rules-----
+Rule:  First search for the most recent "from date" in Petra with source = OW  
+			Then search OW for any perfs with more recent dates
+			Run QC on those perfs (See QC text file)
+			Run Editing Rules on those perfs
+			Then make those perfs available for csv upload.
+
+
+
+			
+-----Editing Rules--------------
+
+//change date formate to mm/dd/yyyy 
+	if(isset($var10) and strpos($var10, "-") >0){
+	$date = explode("-", $var10);
+	$date2 = $date[1]."/".$date[2]."/".$date[0];
+	} else {
+	$date2 = null;
+	}
+			
+// To match Petras perf interval format
+//If interval is 1 make bottom perf the same as top perf to make the interval zero
+	if($var8-$var9 == 1){
+	$var8 = $var9;
+	}
+  
+	if($var7 =="PERFORATED"){
+		$var7 = 'Active';
+	};
+	
+	if($var5 <= 0){
+		$var5 = $var11;
+		
+		if($var5 <= 0){
+			$var5 = null;
+		}
+	};
+
+//Change perftype names 
+	if($var7 =="PERFORATED  "){
+		$var7 = 'Active';
+	};
+		
+	if($var7 =="PERFORATED "){
+		$var7 = 'Active';
+	};
+	if($var7 =="INACTIVE MECHANI"){
+		$var7 = 'Inactive';
+	};
+	if($var7 =="SQUEEZE PERF"){
+		$var7 = 'Squeezed';
+	};
+	if($var7 =="SQUEEZED PERF"){
+		$var7 = 'Squeezed';
+	};
+	if($var7 =="REMEDIATION PERF"){
+		$var7 = 'Squeezed';
+	};
+	if($var7 =="NON-STIM PERF"){
+		$var7 = 'Non Stim';
+		$CompType = "TypOW:NoStm";
+	};
+	if($var7 ==""){
+		$var7 = 'Undefined';
+		$CompType = "TypOW:Unk";
+	};
+	
+//Method and CompType are the same since we simply want to specify if the 
+//perftype is TypOW:Unk (null) or TypOW:NoStm
+	$Method = $CompType;
+	
+
+-----Duplicate Existing Perf Rules----
+Rule: If the perf has a an older matching perf (recomplete) only include the updated perf? Chris Wold suggestion

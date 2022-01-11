@@ -1,0 +1,68 @@
+				<!DOCTYPE html>
+				<html>
+				<head>
+				  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+				  <title>Column Chart Example - jsFiddle demo</title>
+				  
+				  <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.3.js'></script>
+				  
+
+				</head>
+				<body>
+				  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['timeline']}]}"></script>
+					   <div id="chart_div" style="width: 900px; height: 500px;"></div>
+				   
+				  
+
+
+				<script type='text/javascript'>//<![CDATA[ 
+
+				google.setOnLoadCallback(drawChart);
+				function drawChart() {
+
+					var container = document.getElementById('chart_div');
+					var chart = new google.visualization.Timeline(container);
+					var dataTable = new google.visualization.DataTable();
+					
+					dataTable.addColumn({ type: 'string', id: 'Position' });
+					dataTable.addColumn({ type: 'string', id: 'Name' });
+					dataTable.addColumn({ type: 'date', id: 'Start' });
+					dataTable.addColumn({ type: 'date', id: 'End' });
+					dataTable.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+					
+					dataTable.addRow([ 'President',          "George Washington \rRig Ready", new Date(1789, 3, 29), new Date(1797, 2, 3),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'President',          'John Adams',        new Date(1797, 2, 3),  new Date(1801, 2, 3),"Status: <br>some more stuff here1"]);
+					dataTable.addRow([ 'President',          'Thomas Jefferson',  new Date(1801, 2, 3),  new Date(1809, 2, 3),"Status: <br>some more stuff her2"]);
+					dataTable.addRow([ 'Vice President',     'John Adams',        new Date(1789, 3, 20), new Date(1797, 2, 3),"Status: <br>some more stuff h3"]);
+					dataTable.addRow([ 'Vice President',     'Thomas Jefferson',  new Date(1797, 2, 3),  new Date(1801, 2, 3),"Status: <br>some more stuff her4"]);
+					dataTable.addRow([ 'Vice President',     'Aaron Burr',        new Date(1801, 2, 3),  new Date(1805, 2, 3),"Status: <br>some more stuff her5"]);
+					dataTable.addRow([ 'Vice President',     'George Clinton',    new Date(1805, 2, 3),  new Date(1812, 3, 19),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'John Jay',          new Date(1789, 8, 25), new Date(1790, 2, 21),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'Thomas Jefferson',  new Date(1790, 2, 21), new Date(1793, 11, 30),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'Edmund Randolph',   new Date(1794, 0, 1),  new Date(1795, 7, 19),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'Timothy Pickering', new Date(1795, 7, 19), new Date(1800, 4, 11),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'Charles Lee',       new Date(1800, 4, 12), new Date(1800, 5, 4),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'John Marshall',     new Date(1800, 5, 12), new Date(1801, 2, 3),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'Levi Lincoln',      new Date(1801, 2, 4),  new Date(1801, 4, 0),"Status: <br>some more stuff here!!!"]);
+					dataTable.addRow([ 'Secretary of State', 'James Madison',     new Date(1801, 4, 1),  new Date(1809, 2, 2),"Status: <br>some more stuff here!!!"]);
+					
+					var view = new google.visualization.DataView(dataTable);
+					view.setColumns([0,1,2,3]);    
+					
+					
+					chart.draw(view);    
+					
+					function myHandler(e){
+						if(e.row != null){
+							$(".google-visualization-tooltip").html(dataTable.getValue(e.row,4)).css({width:"auto",height:"auto"});
+						}        
+					}
+					
+					google.visualization.events.addListener(chart, 'onmouseover', myHandler);
+					
+				}
+				//]]>  
+
+				</script>
+				</body>
+				</html>

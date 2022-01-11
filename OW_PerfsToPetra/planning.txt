@@ -1,0 +1,51 @@
+//Foreach Dim Well
+
+
+//Retrieve Petra Perfs
+
+//Retrieve OW Perfs
+
+
+
+//  Count how many wells have perfs in OW
+//Count how many wells have perfs in Petra
+
+
+//Step 2
+//Check overlapping perfs
+
+//Theoretical rules
+//If proposed OW 'active' perf and Petra 'proposed' perf are at the same depth, label petra perf active
+//If either OW or Petra has perfs that don't overlap each other include in Petra with associated label
+//IF perfs conflict, shuttle into a list that can be viewed one off in a web based system.
+foreach petra perf  check and see if their is an OW perf
+
+if both exist 
+
+//---------------------------------------------------------------------------------------
+//Lists that need creating
+//---------------------------------------------------------------------------------------
+//List of wells with perfs that are not in Petra
+//List of wells with perfs that are not in OW
+//List of wells with unmatching but not contradicting perfs
+//List of wells with contradicting perfs
+
+
+//---------------------------------------------------------------------------------------
+//Petra Upload Columns
+//---------------------------------------------------------------------------------------
+Top Depth
+Base Depth
+Source
+Start Date
+End Date
+Status (Active/Inactive)
+No. of Shots
+Diameter
+Method
+Completion Type
+Remark
+
+//---------------------------------------------------------------------------------------
+//OW Columns
+//---------------------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+The Consultants will need an email reminding them how to use the check perfs tool:
+
+Check Perfs tool should check for:
+missing date
+missing perftype
+Zone text matching 
+Interval Type Text matching
+Gross interval outside of 1-3 feet.
