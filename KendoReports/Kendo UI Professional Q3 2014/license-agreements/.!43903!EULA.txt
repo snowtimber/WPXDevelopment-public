@@ -1,7 +1,0 @@
-Telerik End User License Agreement for Kendo UI Professional
-
-(Last Updated July 16th, 2014)
-
-If You have accessed the Software, as defined below, through the Telerik Platform, this document does not apply to You. Please see http://www.telerik.com/purchase/license-agreement/platform  for the terms and conditions that apply to Your use of the Software.
-Kendo UI Professional is a suite of software components which replaces the Telerik software product previously known as Kendo UI Complete. It is offered pursuant to the terms and conditions contained below.
-
